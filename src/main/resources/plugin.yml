@@ -1,0 +1,6 @@
+name: BetterChat
+version: '${project.version}'
+main: me.aroze.betterchat.BetterChat
+api-version: 1.19
+authors: [ Aroze ]
+description: A plugin allowing users to delete and edit chat messages.
