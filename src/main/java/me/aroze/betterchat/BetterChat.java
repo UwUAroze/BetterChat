@@ -1,17 +1,26 @@
 package me.aroze.betterchat;
-
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class BetterChat extends JavaPlugin {
 
+    private ProtocolManager protocolManager;
+
+    public ProtocolManager getProtocolManager() {
+        return protocolManager;
+    }
+
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        protocolManager = ProtocolLibrary.getProtocolManager();
 
+        ChatListener chatListener = new ChatListener(this);
+        chatListener.addPacketListener();
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        //
     }
 }
