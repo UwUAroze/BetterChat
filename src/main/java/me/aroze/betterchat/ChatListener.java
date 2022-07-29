@@ -34,14 +34,15 @@ public class ChatListener{
 
                 PacketContainer packet = event.getPacket();
 
-//                WrappedChatComponent message = packet.getChatComponents().read(0);
-//                Player user = event.getPlayer();
-//
-//                BaseComponent[] chatData = ComponentConverter.fromWrapper(message);
-//                String rawText = TextComponent.toPlainText(chatData);
-//                String messageString = TextComponent.toLegacyText(chatData);
+                WrappedChatComponent message = packet.getChatComponents().read(0);
+                Player user = event.getPlayer();
 
                 System.out.println("b");
+                BaseComponent[] chatData = ComponentConverter.fromWrapper(message);
+                System.out.println("c");
+
+//                String rawText = TextComponent.toPlainText(chatData);
+//                String messageString = TextComponent.toLegacyText(chatData);
 
             }
         });
