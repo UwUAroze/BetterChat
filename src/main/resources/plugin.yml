@@ -5,3 +5,5 @@ api-version: 1.18
 authors: [ Aroze ]
 depend: [ ProtocolLib ]
 description: A plugin allowing users to delete and edit chat messages.
+commands:
+  lastlog: {}

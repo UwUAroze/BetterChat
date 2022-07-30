@@ -6,7 +6,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class BetterChat extends JavaPlugin {
 
     private ProtocolManager protocolManager;
-
     public ProtocolManager getProtocolManager() {
         return protocolManager;
     }
@@ -17,6 +16,8 @@ public final class BetterChat extends JavaPlugin {
 
         ChatListener chatListener = new ChatListener(this);
         chatListener.addPacketListener();
+
+        getCommand("lastlog").setExecutor(new TestCommand());
     }
 
     @Override
