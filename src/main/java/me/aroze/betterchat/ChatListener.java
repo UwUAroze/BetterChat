@@ -1,20 +1,9 @@
 package me.aroze.betterchat;
 
 import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.events.ListenerPriority;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
-import com.comphenix.protocol.reflect.StructureModifier;
-import com.comphenix.protocol.wrappers.ComponentConverter;
-import com.comphenix.protocol.wrappers.WrappedChatComponent;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-
-import javax.annotation.Nonnull;
 
 public class ChatListener{
 
@@ -30,16 +19,15 @@ public class ChatListener{
             @Override
             public void onPacketSending(PacketEvent event) {
 
-                System.out.println("a");
-
                 PacketContainer packet = event.getPacket();
 
-                WrappedChatComponent message = packet.getChatComponents().read(0);
-                Player user = event.getPlayer();
+                System.out.println(packet.getModifier().read(0)); //??
+                System.out.println(packet.getModifier().read(2)); //??
 
-                System.out.println("b");
-                BaseComponent[] chatData = ComponentConverter.fromWrapper(message);
-                System.out.println("c");
+                System.out.println(packet.getModifier().read(1)); // Chat thing
+                System.out.println(packet.getModifier().read(3)); // SYSTEM or CHAT
+                System.out.println(packet.getModifier().read(4)); // Sender's uuid
+                System.out.println(event.getPlayer().getUniqueId()); // Receiver's uuid
 
 //                String rawText = TextComponent.toPlainText(chatData);
 //                String messageString = TextComponent.toLegacyText(chatData);
